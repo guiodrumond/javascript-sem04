@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de Repetição ➿</title>
+</head>
+
+<body>
+
+    <h2>Estruturas de Repetição ➿</h2>
+
+    <p>1. Com as estruturas de repetição for e while, faça o que se pede:</p>
+
+    <p>a) Mostre os números de 1 a 50 na tela, dizendo se é par ou ímpar:</p>
+
+    <script>
+        console.log("-----------------------------")
+        console.log("Exercício 1 letra a")
+
+        for (i = 1; i <= 50; i++) {
+            console.log(`${i} é ${i % 2 == 0 ? 'par' : 'impar'}`)
+        }
+
+    </script>
+
+    <p>b) Mostre apenas os múltiplos de 3 entre 1 e 100:</p>
+
+    <script>
+        console.log("-----------------------------")
+        console.log("Exercício 1 letra b")
+
+        let multiplosDe3 = []
+
+        for (i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                multiplosDe3.push(i)
+            }
+        }
+
+        console.log(multiplosDe3.join(", "))
+
+    </script>
+
+    <p>c) Mostre a seguinte sequência (de 100 até 0, pulando de dois em dois):</p>
+
+    <script>
+        console.log("-----------------------------")
+        console.log("Exercício 1 letra c")
+
+        let resultadoEx2 = []
+
+        for (i = 100; i > 0; i--) {
+            if (i % 2 == 0) {
+                resultadoEx2.push(i)
+            }
+        }
+
+        console.log(resultadoEx2.join(", "))
+
+    </script>
+
+    <br>
+
+    <p>2. O jogo do PIM é um jogo em que o Sílvio Santos pedia para os participantes de seu programa contar de 1 até 40
+        da seguinte forma:</p>
+
+    <p><i>"1, 2, 3, PIM, 5, 6, 7, PIM, 9, 10, 11, PIM, 13, 14, 15, PIM, 17, 18, 19, PIM, 21, 22, 23, PIM, 25, 26, 27,
+            PIM, 29, 30, 31, PIM, 33, 34, 35, PIM, 37, 38, 39, PIM!"</i></p>
+
+    <p>Ou seja, quando o número era múltiplo de 4, o jogador tinha que falar PIM ao invés do número! Crie uma lógica que
+        executa o jogo do PIM corretamente.</p>
+
+        <script>
+            console.log("-----------------------------")
+            console.log("Exercício 2")
+    
+            let jogoPim = []
+    
+            for (i = 1; i <= 40; i++) {
+                if (i % 4 == 0) {
+                    jogoPim.push('🔔')
+                } else {
+                    jogoPim.push(i)
+                }
+            }
+    
+            console.log(jogoPim.join(", "))
+    
+        </script>
+
+    <br>
+
+    <p>Resultados usando <code>console.log()</code></p>
+
+</body>
+
+</html>
