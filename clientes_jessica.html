@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando valores 📊</title>
+</head>
+
+<body>
+
+    <script>
+
+        let cabecario = ['cidade', 'quant_clientes', 'faturamento', 'lucro'];
+        let cidade1 = ['Belo Horizonte', 23, 2950]
+        let cidade2 = ['São Paulo', 12, 3950]
+        let cidade3 = ['Salvador', 11, 1329]
+        let cidade4 = ['Campo Grande', 10, 2412]
+        let cidade5 = ['Curitiba', 8, 626]
+
+        let cidades = [];
+
+        cidades.push(cidade1);
+        cidades.push(cidade2);
+        cidades.push(cidade3);
+        cidades.push(cidade4);
+        cidades.push(cidade5);
+
+    </script>
+
+    <h1>Manipulando valores 📊</h1>
+    
+    <h2>Exercício 1</h2>
+    <p>Some as quantidade desses clientes de Jéssica e concatene esse valor numa string semelhante a:
+        <br>"Nas capitais de BH, SP, BA, MS e PR, Jéssica possui N clientes."
+    </p>
+    <button onclick="exercicio1()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio1() {
+
+            let totalDeClintes = 0;
+
+            cidades.forEach(cidade => {
+                totalDeClintes = totalDeClintes + cidade[1];
+            });
+
+            console.log('-------------------------------');
+            console.log('Exercício 1');
+            console.log(`Nas capitais de BH, SP, BA, MS e PR, Jéssica possui ${totalDeClintes} clientes.`);
+
+        };
+    </script>
+
+</body>
+
+</html>

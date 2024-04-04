@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas 📃</title>
+</head>
+
+<body>
+    <h1>Listas 📃</h1>
+    <h2>Exercício 1</h2>
+    <p>Crie uma lista chamada pessoa, coloque valores dentro dela como: nome (string), idade (inteiro), CPF (string),
+        altura (decimal), se é maior de idade ou não (valor booleano true ou false).</p>
+
+    <button onclick="exercicio1()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio1() {
+
+            let lista = [];
+            let dados = ['nome', 'idade', 'cpf', 'altura', 'maioridade'];
+            let valores = ['João da Silva', 34, '333.444.555-66', 1.89, true];
+
+            for (i = 0; i < dados.length; i++) {
+                let paresDeDados = [];
+                paresDeDados.push(dados[i]);
+                paresDeDados.push(valores[i]);
+                lista.push(paresDeDados)
+            };
+            console.log('-------------------------------');
+            console.log('Exercício 1');
+            console.log(lista);
+        };
+    </script>
+    <br>
+
+    <h2>Exercício 2</h2>
+    <p>Crie um programa que recebe uma quantidade máxima de 10 de letras e ao final exibe todas elas no console.</p>
+    <p>Crie uma função chamada recebeLetra para pegar a letra e colocar na lista de letras.</p>
+    <button onclick="exercicio2()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio2() {
+
+            let listaDeLetras = [];
+
+            function letraAleatoria() {
+                const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                const indiceAleatorio = Math.floor(Math.random() * alfabeto.length);
+                return alfabeto[indiceAleatorio];
+            }
+
+            function recebeLetra() {
+                while (listaDeLetras.length < 10) {
+                    listaDeLetras.push(letraAleatoria());
+                };
+                console.log('-------------------------------');
+                console.log('Exercício 2');
+                console.log(listaDeLetras)
+            };
+
+            recebeLetra();
+        };
+    </script>
+    <br>
+
+    <h2>Exercício 3</h2>
+    <p>Considerando o exercício anterior, refaça ele criando uma lista que irá armazenar as letras e em seguida mostre
+        no console:</p>
+    <ol type="a">
+        <li>A primeira letra digitada</li>
+        <li>A quarta letra digitada</li>
+        <li>A quinta letra digitada</li>
+        <li>A última letra digitada</li>
+        <li>O tamanho da lista criada</li>
+    </ol>
+    <button onclick="exercicio3()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio3() {
+
+            let listaDeLetras = [];
+
+            function letraAleatoria() {
+                const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                const indiceAleatorio = Math.floor(Math.random() * alfabeto.length);
+                return alfabeto[indiceAleatorio];
+            }
+
+            function recebeLetra() {
+                while (listaDeLetras.length < 10) {
+                    listaDeLetras.push(letraAleatoria());
+                };
+
+                console.log('-------------------------------');
+                console.log('Exercício 3');
+                console.log(`A primeira letra digitada: ${listaDeLetras[0]}`);
+                console.log(`A quarta letra digitada: ${listaDeLetras[3]}`);
+                console.log(`A quinta letra digitada: ${listaDeLetras[4]}`);
+                console.log(`A última letra digitada: ${listaDeLetras[listaDeLetras.length - 1]}`);
+                console.log(`O tamanho da lista criada: ${listaDeLetras.length}`);
+                console.log(listaDeLetras);
+
+            };
+
+            recebeLetra();
+        };
+    </script>
+
+</body>
+
+</html>
