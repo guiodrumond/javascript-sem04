@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema bancário 🏦</title>
+</head>
+
+<body>
+    <h1>Sistema bancário 🏦</h1>
+    <p>
+    <p>Ao errar a senha por 3 vezes seguidas, o cartão de banco do usuário é bloqueado. Thayná estava tentando fazer
+        compras e errou sua senha por 3 vezes seguidas, até que recebeu a seguinte mensagem: <i>“Senha incorreta. Seu
+            cartão foi bloqueado. Se deseja ir a uma agência, digite “A” ou se deseja desbloquear com sua chave de
+            segurança, digite “D”.</i></p>
+
+    <ul>
+        <li>Se Thayná digitar “A”, uma mensagem será exibida para ela, dizendo que será um prazer atendê-la em uma
+            agência</li>
+        <li>Se Thayná digitar “D”, a mensagem será exibida será: <i>“Digite a chave de segurança que foi enviada para
+                seu
+                e-mail cadastrado.”</i></li>
+    </ul>
+
+    <p>Para fins de testes, considere que a chave de segurança que Thayná recebeu é 9999</p>
+
+    <ul>
+        <li>Se Thayná digitar corretamente a chave, ela receberá uma mensagem pedindo para redefinir a senha</li>
+        <li>Se Thayná digitar incorretamente a chave, ela deverá ir a uma agência e deve ser avisada sobre isso. Crie a
+            lógica por trás de toda essa situação.</li>
+    </ul>
+    </p>
+
+    <button onclick="exercicio1()">Mostrar o resultado no console</button>
+
+    <script>
+
+        function exercicio1() {
+
+            let fase = 1;
+
+            let pergunta
+
+            let resposta
+
+            function teste(fase) {
+
+                if (fase == 1) {
+                    pergunta = "Senha incorreta. Seu cartão foi bloqueado. Se deseja ir a uma agência, digite “A” ou se deseja desbloquear com sua chave de segurança, digite “D”.";
+                    resposta = prompt(pergunta)
+                } else if (fase == 2) {
+                    pergunta = "Digite a chave de segurança que foi enviada para seu e-mail cadastrado.";
+                    resposta = prompt(pergunta)
+                }
+
+                return resposta
+
+            };
+
+            while (resposta != "A" && resposta != "D") {
+
+                resposta = teste(fase);
+
+            };
+
+            fase = 2;
+
+            if (resposta == "A") {
+                alert("Será um prazer receber você em uma de nossas agências!")
+            } else {
+                teste(fase)
+
+                if (resposta == "9999") {
+                    alert("Redefina sua senha agora")
+                } else {
+                    alert("Você deve se dirigir a uma de nossas agências para redefinir a senha")
+                }
+
+            };
+
+        };
+
+    </script>
+
+</body>
+
+</html>

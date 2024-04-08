@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmulas matemáticas ➗</title>
+</head>
+
+<body>
+    <h1>Fórmulas matemáticas ➗</h1>
+
+    <img src="imagem.png" alt="imagem" width="600px">
+
+    <p>Com base na imagem acima, faça o que se pede.</p>
+
+    <h2>Exercício 1</h2>
+
+    <p>crie uma variável para cada figura geométrica, que armazene a fórmula que calcula a sua área.</p>
+
+    <script>
+        let retangulo = "base * altura";
+        let círculo = "Pi * (raio ** 2)";
+        let triângulo = "(base * altura) / 2";
+
+        // Transformando em funções
+
+        function AreaRetangulo(b, h) {
+            return b * h;
+        };
+
+        function AreaCirculo(r) {
+            return 3.14 * (r ** 2);
+        };
+
+        function AreaTriangulo(b, h) {
+            return (b * h) / 2;
+        };
+
+    </script>
+
+    <button onclick="exercicio1()">Mostrar o resultado no console</button>
+
+    <script>
+        function exercicio1() {
+            console.log(`A fórmula para calcular a área do retângulo é ${retangulo}`);
+            console.log(`A fórmula para calcular a área do círculo é ${círculo}`);
+            console.log(`A fórmula para calcular a área do triângulo é ${triângulo}`);
+        };
+    </script>
+
+    <h2>Exercício 2</h2>
+
+    <p>
+        Com as fórmulas armazenadas nessas variáveis, atribua valores em váriaveis para as bases, alturas e raio das
+        figuras e calcule
+    </p>
+
+    <ol type="a">
+        <li>a área do retângulo</li>
+        <li>a área do círculo</li>
+        <li>a área do triângulo retângulo</li>
+    </ol>
+
+    <p>
+        Em seguida exiba os resultados do cálculos das áreas, imprimindo as variáveis através do
+        <code>console.log()</code>.
+    </p>
+
+    <button onclick="exercicio2()">Mostrar o resultado no console</button>
+
+    <script>
+
+        function exercicio2() {
+
+            function valorAleatorio() {
+                return Math.random() * (10 - 1) + 1;
+            };
+
+            console.log("Calculando área do retângulo:")
+
+            let base = valorAleatorio();
+            let altura = valorAleatorio();
+
+            console.log(`Em um retângulo com base de ${base.toFixed(2)}cm e altura de ${altura.toFixed(2)}cm a área será ${AreaRetangulo(base.toFixed(2), altura.toFixed(2))}cm²`);
+
+            console.log("Calculando área do círculo:")
+
+            let raio = valorAleatorio();
+
+            console.log(`Em um círculo com raio de ${raio.toFixed(2)}cm a área será ${AreaCirculo(raio.toFixed(2))}cm²`);
+
+            console.log("Calculando área do triângulo:")
+
+            let base2 = valorAleatorio();
+            let altura2 = valorAleatorio();
+
+            console.log(`Em um triângulo com base de ${base.toFixed(2)}cm e altura de ${altura.toFixed(2)}cm a área será ${AreaTriangulo(base.toFixed(2), altura.toFixed(2))}cm²`);
+
+        };
+
+    </script>
+
+</body>
+
+</html>

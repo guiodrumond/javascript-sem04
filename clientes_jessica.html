@@ -29,7 +29,7 @@
     </script>
 
     <h1>Manipulando valores 📊</h1>
-    
+
     <h2>Exercício 1</h2>
     <p>Some as quantidade desses clientes de Jéssica e concatene esse valor numa string semelhante a:
         <br>"Nas capitais de BH, SP, BA, MS e PR, Jéssica possui N clientes."
@@ -51,6 +51,98 @@
 
         };
     </script>
+
+    <h2>Exercício 2</h2>
+    <p>2. Calcule a média de faturamento por cliente de cada cidade e obtenha como resultado strings semelhantes a:</p>
+
+    <code>"Faturamento médio por cliente:"</code><br>
+    <code>"Belo Horizonte: R$ 128"</code><br>
+    <code>"São Paulo: R$ 329"</code><br>
+    <code>"Salvador: R$ 121"</code><br>
+    <code>"Campo Grande: R$ 241"</code><br>
+    <code>"Curitiba: R$ 78"</code>
+
+    <p>■ Utilize <code>Math.round()</code>!</p>
+    <button onclick="exercicio2()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio2() {
+
+            console.log('-------------------------------');
+            console.log('Exercício 2');
+            console.log("Faturamento médio por cliente:");
+
+            cidades.forEach(cidade => {
+                console.log(`${cidade[0]}: R$${Math.round(cidade[2] / cidade[1])}`);
+            });
+
+        };
+    </script>
+
+    <h2>Exercício 3</h2>
+    <p>3. Calcule a média de faturamento por cliente, com base em todos os clientes dessas cinco cidades e atribua o
+        valor numa string semelhante a:</p>
+
+    <p><code>"Faturamento médio por cliente nas cinco cidades onde Jéssica mais tem clientes ativos é de R$ 176"</code>
+    </p>
+
+    <button onclick="exercicio3()">Mostrar resultado no console</button>
+
+    <script>
+        function exercicio3() {
+
+            let clientes = 0;
+            let faturamento = 0;
+
+            cidades.forEach(cidade => {
+                clientes = clientes + cidade[1];
+                faturamento = faturamento + cidade[2];
+            });
+
+            console.log(`Faturamento médio por cliente nas cinco cidades onde Jéssica mais tem clientes ativos é de R$ ${Math.round(faturamento / clientes)}`);
+
+        }
+    </script>
+
+    <h2>Exercicio 4</h2>
+    <p>4. Sabendo que Jéssica oferece frete grátis para seus clientes e possui uma parceria com uma transportadora,
+        considere as seguintes informações sobre os custos com frete que ela possui:</p>
+
+    <ul>
+        <li>Frete fixo para o estado de São Paulo = R$ 9,00 por produto vendido</li>
+        <li>Frete para os demais estados do Brasil = R$ 14,00 por produto vendido</li>
+        <li>O custo de produção dos seus produtos representam 20% do valor faturado (descontando o valor do envio)</li>
+    </ul>
+
+    <p>Com base nessas informações, ela quer automatizar o cálculo de seu lucro por cidade. Crie as lógicas de cálculos
+        que
+        serão implementadas no programa para preencher a coluna lucro. Utilize console.log() para fazer os testes e
+        lembre-se de utilizar variáveis para armazenar valores.</p>
+
+        <button onclick="exercicio4()">Mostrar resultado no console</button>
+
+        <script>
+            function exercicio4() {
+
+                cidades.forEach(cidade => {
+
+                    let custoDeEnvioUnitario = 0;
+
+                    cidade[0] == 'São Paulo' ? custoDeEnvioUnitario = 9 : custoDeEnvioUnitario = 14;
+
+                    let custoDeEnvioTotal = cidade[1] * custoDeEnvioUnitario;
+
+                    let lucro = (cidade[2] - custoDeEnvioTotal) * 0.8;
+
+                    cidade.push(Math.round(lucro));
+
+                });
+                
+                console.log(cidades);
+
+            };
+        </script>
+
 
 </body>
 
