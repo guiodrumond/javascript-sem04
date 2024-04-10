@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software utilizado em escolas 🏫</title>
+</head>
+
+<body>
+
+    <h1>Software utilizado em escolas 🏫</h1>
+    <p><b>→ A diretoria de uma escola quer implementar um sistema tecnológico para poder extinguir o sistema manual, e
+            assim ter mais agilidade e segurança em suas rotinas. Para isso, contatou a equipe de TI em que você é dev e
+            ficou responsável pelas seguintes tarefas:</b></p>
+
+    <p>
+        1. Eles querem implementar um sistema para o cálculo de médias de cada turma, pois a escola criará uma gincana a
+        cada mês, focando em uma disciplina específica. Para o mês atual, a disciplina escolhida é Matemática e o
+        professor regente deve inserir as notas de todos os alunos da turma no sistema que você irá criar utilizando
+        inicialmente e para testes o prompt().</p>
+
+    <ol type="a">
+        <li>Exiba a mensagem: “Insira as notas de seus alunos. Quando acabar digite “SAIR”</li>
+
+        <li>Com o alert() exiba o resultado da média da turma após receber a mensagem “SAIR”</li>
+    </ol>
+
+    <p>■ Lembre-se que a função prompt() retorna as entradas como strings</p>
+
+    <button onclick="exercicio1()">Mostrar o resultado no console</button>
+
+    <script>
+
+        let alunos = [
+            'Alice', 'Amanda', 'Beatriz', 'Camila',
+            'Felipe', 'Fernanda'
+        ];
+
+        let notas = [];
+
+        function exercicio1() {
+
+            let matematicaNotas = [];
+
+            alunos.forEach(aluno => {
+                let nota = prompt(`Digite a nota de ${aluno}`)
+                matematicaNotas.push(+nota);
+            });
+
+            let mensagem
+
+            while (mensagem != "SAIR") {
+                mensagem = prompt("Digite SAIR para encerrar o lançamento");
+            }
+
+            console.log("NOTAS DE MATEMÁTICA")
+
+            for (i = 0; i < alunos.length; i++) {
+                console.log(`${alunos[i]}: ${matematicaNotas[i]}`)
+            }
+
+            let soma = 0;
+
+            for (let i = 0; i < matematicaNotas.length; i++) {
+                soma += matematicaNotas[i];
+            }
+
+            console.log(`MÉDIA DA TURMA: ${soma / matematicaNotas.length}`);
+
+            alert(`MÉDIA DA TURMA: ${soma / matematicaNotas.length}`);
+
+        };
+
+    </script>
+
+    <br>
+
+    <p>2. A diretoria também quer saber como anda o rendimento escolar dos alunos. Por isso, o sistema de notas dos
+        alunos
+        deve ter um funcionalidade com as seguintes regras:</p>
+
+    <ul>
+        <li>Todos os professores devem inserir as notas de seus alunos no sistema, e o sistema calcula a média desse
+            aluno</li>
+        <li>A escola exige 1 prova valendo 10 pontos e 1 trabalho valendo 10 pontos por bimestre</li>
+        <li>A média mínima esperada para a aprovação é 7.0</li>
+        <li>A diretoria solicita receber um e-mail sobre os alunos que não atingiram a média no bimestre, constando:
+            <ul>
+                <li>Nome do aluno ou aluna</li>
+                <li>Disciplina em que ficou abaixo da média</li>
+                <li>Média do bimestre nesta disciplina</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>Para testes e aprendizado, você pode utilizar o <code>console.log</code> ou o <code>document.write()</code>
+    </p>
+
+    <button onclick="exercicio2()">Mostrar o resultado no console</button>
+
+    <script>
+
+        function exercicio2() {
+
+            let materia = [];
+            let notasProva = [];
+            let notasTrabalho = [];
+            let notasMedia = [];
+
+            materia.push(prompt("Digite o nome da matéria"));
+
+            for (i = 0; i < alunos.length; i++) {
+                notasProva.push(+prompt(`Digite a nota da prova para ${alunos[i]}`))
+            };
+
+            materia.push(notasProva);
+
+            for (i = 0; i < alunos.length; i++) {
+                notasTrabalho.push(+prompt(`Digite a nota do trabalho para ${alunos[i]}`))
+            };
+
+            materia.push(notasTrabalho);
+
+            for (i = 0; i < alunos.length; i++) {
+                notasMedia.push((notasProva[i] + notasTrabalho[i]) / 2);
+            };
+
+            materia.push(notasMedia);
+
+            console.log(`${materia[0]} - Alunos abaixo da média`);
+
+            for (i = 0; i < alunos.length; i++) {
+                if (materia[3][i] < 7) {
+                    console.log(`${alunos[i]} - ${materia[3][i]}`)
+                };
+            };
+        };
+
+    </script>
+
+    <br>
+
+    <p>3. Após a diretoria aprovar tudo, eles querem que o software receba uma atualização! Agora esse sistema também
+        possibilitará que o líder de uma turma seja escolhido conforme algumas regras. O software deve receber os 3
+        alunos mais indicados para a seleção, e com isso ele deve receber os seguintes dados:</p>
+
+    <ol type="a">
+        <li>Média escolar desses alunos em Língua Portuguesa</li>
+        <li>Em caso de empate, será avaliada a média escolar em Matemática</li>
+    </ol>
+
+    <p>Sua função deve receber como parâmetro o nome dos alunos e as médias nas duas disciplinas.</p>
+
+    <button onclick="exercicio3()">Mostrar o resultado no console</button>
+
+    <script>
+
+        function exercicio3() {
+
+            let nomeDosAlunos = [];
+            let mediaPortugues = [];
+            let mediaMatematica = [];
+
+            let mensagem2
+
+            while (mensagem2 != "SAIR") {
+                mensagem2 = prompt("Digite o NOME do aluno ou SAIR para encerrar");
+
+                if (mensagem2 != "SAIR") {
+                    nomeDosAlunos.push(mensagem2);
+                };
+
+            };
+
+            nomeDosAlunos.forEach(aluno => {
+                mediaPortugues.push(+prompt(`Insira a média de português para ${aluno}`));
+                mediaMatematica.push(+prompt(`Insira a média de Matemática para ${aluno}`));
+            });
+
+            let maiorMediaPor = 0;
+            let liderDeTurma = [];
+
+            for (i = 0; i < nomeDosAlunos.length; i++) {
+
+                if (mediaPortugues[i] > maiorMediaPor) {
+                    liderDeTurma = [nomeDosAlunos[i]];
+                    maiorMediaPor = mediaPortugues[i];
+                } else if (mediaPortugues[i] == maiorMediaPor) {
+                    liderDeTurma.push(nomeDosAlunos[i]);
+                };
+
+            };
+
+            console.log(liderDeTurma);
+
+            if (liderDeTurma.length == 1) {
+
+                console.log(`O líder da turma é ${liderDeTurma[0]}`);
+
+            } else {
+
+                let maiorMediaMat = 0;
+
+                let liderDeTurmaDesempate = [];
+
+                for (i = 0; i <= liderDeTurma.length; i++) {
+
+                    if (mediaMatematica[liderDeTurma.indexOf(liderDeTurma[i])] > maiorMediaMat) {
+
+                        console.log(`Média MAT${mediaMatematica[liderDeTurma.indexOf(liderDeTurma[i])]}`);
+                        console.log(`Maior média MAT ${maiorMediaMat}`);
+
+                        liderDeTurmaDesempate = [];
+                        liderDeTurmaDesempate.push(liderDeTurma[i]);
+                        maiorMediaMat = mediaMatematica[liderDeTurma.indexOf(liderDeTurma[i])];
+
+                    } else if (mediaMatematica[liderDeTurma.indexOf(liderDeTurma[i])] == maiorMediaMat) {
+
+                        liderDeTurmaDesempate.push(liderDeTurma[i]);
+                        
+                    };
+
+                };
+
+                console.log(`O líder da turma, após o desempate, é ${liderDeTurmaDesempate}`);
+
+            };
+
+        };
+
+    </script>
+
+    <br>
+
+</body>
+
+</html>
